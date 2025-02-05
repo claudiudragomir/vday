@@ -17,6 +17,7 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            cursor: pointer; 
         }
         audio {
             display: none;
@@ -24,9 +25,20 @@
     </style>
 </head>
 <body>
-    <img src="yes.gif" alt="yesssss">
-    <audio autoplay loop>
+    <img src="yes.gif" alt="yesssss" id="gif-click">
+
+    <audio id="bg-music" loop>
         <source src="yes.mp3" type="audio/mpeg">
     </audio>
+    <script>
+        document.getElementById("gif-click").addEventListener("click", function() {
+            let audio = document.getElementById("bg-music");
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Autoplay blocat:", error));
+            }
+        });
+    </script>
 </body>
+
+
 </html>
